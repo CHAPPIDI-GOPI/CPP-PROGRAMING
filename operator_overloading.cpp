@@ -33,6 +33,25 @@ class OperatorOverloading
 		}
 };
 //int OperatorOverloading::count= 5;
+class copyconstructor
+{
+	public:
+		int var;
+
+		copyconstructor(int j)
+		{
+			var = j;
+		}
+		//copy constructor
+		copyconstructor(copyconstructor &obb)
+		{
+			var  = obb.var;
+		}
+		void display()
+		{
+			cout<<"var :"<<var<<endl;
+		}
+};
 class assignment
 {
 	public:
@@ -42,6 +61,7 @@ class assignment
 		{
 			ptr = new int(i);
 		}
+		//assignment operator overloading
 		assignment & operator = (assignment &ob3)
 		{
 			if(this!= &ob3)
@@ -76,6 +96,10 @@ int main()
 	assignment object2;// = object1;
 	object2 = object1;
 	object2.display();
+	copyconstructor object3(10);
+	copyconstructor object4 = object3;
+	object3.display();
+
 
 	return 0;
 }
